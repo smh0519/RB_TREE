@@ -57,7 +57,7 @@ void insert_node_case2(rbtree* t, node_t* node){
 //왼쪽 회전 함수
 void left_rotation(rbtree* t, node_t* node) {
     node_t* right = node->right;
-
+ 
     //  node의 오른쪽 서브트리를 이동
     node->right = right->left;
     if (right->left != NULL)
@@ -229,10 +229,25 @@ node_t *rbtree_max(const rbtree *t) {
 
 int rbtree_erase(rbtree *t, node_t *p) {
   // TODO: 지우기 구현
-  while (1)
+  node_t* cur = t->root; // 현재 노드
+  node_t* c_node = t->root; // 삭제 노드의 대체 노드
+  int key = p->key;
+  while (c_node != NULL){
+    if(cur->key > key){
+      cur= cur->left;
+    }else if(cur->key < key){
+      cur = cur->right;
+    }else{ // 삭제 노드를 찾았을 때
+      cur = cur->right; // 오른쪽 노드로 이동
+      while (c_node != NULL){ // 삭제 노드와 가장 근접한 노드 찾기 
+        c_node = cur->left;
+      }
+    }
+  }
   {
     /* code */
   }
+  
   
   return 0;
 }
