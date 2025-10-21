@@ -54,7 +54,7 @@ void insert_node_case2(rbtree* t, node_t* node){
     insert_node_case3(t,node);
   }
 }
-
+//왼쪽 회전 함수
 void left_rotation(rbtree* t, node_t* node) {
     node_t* right = node->right;
 
@@ -229,7 +229,11 @@ node_t *rbtree_max(const rbtree *t) {
 
 int rbtree_erase(rbtree *t, node_t *p) {
   // TODO: 지우기 구현
-    
+  while (1)
+  {
+    /* code */
+  }
+  
   return 0;
 }
 
